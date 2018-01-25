@@ -1,23 +1,34 @@
 import UIKit
 import GoogleMaps
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var findAddress: UIBarButtonItem!
     @IBOutlet weak var lblInfo: UILabel!
     @IBOutlet weak var viewMap: GMSMapView!
     
+    var locationManager = CLLocationManager()
+    var didFindMyLocation = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let camera: GMSCameraPosition = GMSCameraPosition.camera(withLatitude: 48.857165, longitude: 2.354613, zoom: 8.0)
-        viewMap.camera = camera
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        
+        //observe for changes in the myLocation property of the viewMap object.
+        viewMap.addObserver(self, forKeyPath: "myLocation", options: NSKeyValueObservingOptions.new, context: nil)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if !didFindMyLocation {
+            let myLocation: CLLocation = change![NSKeyValueChangeKey.newKey] as! CLLocation
+            viewMap.camera = GMSCameraPosition.camera(withTarget: myLocation.coordinate, zoom: 10.0)
+            viewMap.settings.myLocationButton = true
+            didFindMyLocation = true
+        }
     }
+    
     
      // MARK: IBAction method implementation
     @IBAction func changeMapType(sender: AnyObject) {
@@ -46,7 +57,12 @@ class ViewController: UIViewController {
         
         present(actionSheet, animated: true, completion: nil)
     }
-
+    
+    private func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        if status == CLAuthorizationStatus.authorizedWhenInUse {
+            viewMap.isMyLocationEnabled = true
+        }
+    }
 }
 
 

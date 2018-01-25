@@ -26,6 +26,7 @@
 		652694DA2018C07C0065293C /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 652694D92018C07C0065293C /* libz.1.dylib */; };
 		652694DB2018C0F70065293C /* libc++.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 652694D72018C0330065293C /* libc++.1.dylib */; };
 		652694DD2018C1100065293C /* libicucore.A.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 652694DC2018C1100065293C /* libicucore.A.dylib */; };
+		65572F63201A0FA000B9FAF4 /* MapTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65572F62201A0FA000B9FAF4 /* MapTasks.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		652694D72018C0330065293C /* libc++.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.1.dylib"; path = "../../../../usr/lib/libc++.1.dylib"; sourceTree = "<group>"; };
 		652694D92018C07C0065293C /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
 		652694DC2018C1100065293C /* libicucore.A.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.A.dylib; path = ../../../../usr/lib/libicucore.A.dylib; sourceTree = "<group>"; };
+		65572F62201A0FA000B9FAF4 /* MapTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTasks.swift; sourceTree = "<group>"; };
 		FBD29C7BE80751A925BFFC7A /* Pods-mapsPractice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mapsPractice.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mapsPractice/Pods-mapsPractice.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -144,6 +146,7 @@
 				6526949E20187EB90065293C /* Assets.xcassets */,
 				652694A020187EB90065293C /* LaunchScreen.storyboard */,
 				652694A320187EB90065293C /* Info.plist */,
+				65572F62201A0FA000B9FAF4 /* MapTasks.swift */,
 			);
 			path = mapsPractice;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65572F63201A0FA000B9FAF4 /* MapTasks.swift in Sources */,
 				6526949A20187EB90065293C /* ViewController.swift in Sources */,
 				6526949820187EB90065293C /* AppDelegate.swift in Sources */,
 			);
